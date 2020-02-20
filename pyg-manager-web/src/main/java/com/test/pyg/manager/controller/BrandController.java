@@ -1,5 +1,6 @@
 package com.test.pyg.manager.controller;
 
+import com.test.entity.PageResult;
 import com.test.pyg.pojo.TbBrand;
 import com.test.pyg.sallergoods.service.BrandService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,13 @@ public class BrandController {
 
     @RequestMapping("/findAll")
     public List<TbBrand> findAll() {
+        System.out.println("BrandController.findAll");
         return brandService.findAll();
+    }
+
+    @RequestMapping("/findPage")
+    public PageResult findPage(int pageNum, int pageSize) {
+        System.out.println("BrandController.findPage");
+        return brandService.findPage(pageNum, pageSize);
     }
 }
